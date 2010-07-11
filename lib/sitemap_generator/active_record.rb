@@ -23,6 +23,5 @@ module SitemapGenerator
     module InstanceMethods
 
     end
-
   end
 end

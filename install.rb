@@ -7,6 +7,7 @@ if !File.exist?(Options::CONFIG_FILE)
     file << "change_frequency: weekly"
     file << "limit: 5000"
     file << "priority: 1.0"
+    file << "gzip: false"
   end
 end
 

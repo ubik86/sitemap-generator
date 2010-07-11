@@ -63,7 +63,7 @@ module SitemapGenerator
           else
             auto_generate(model, data, options)
           end
-
+          
         end
       end
     end
@@ -103,10 +103,15 @@ module SitemapGenerator
       end
 
       @new_size = File.size(@filename)
-
+      
       ping if ping?
 
-      p "Sitemap '#{@filename}' generated successfully."
+      if (Options.gzip rescue false)
+        compress 
+        p "Sitemap '#{@filename}.gz' generated successfully."
+      else
+        p "Sitemap '#{@filename}' generated successfully."
+      end
     end
 
     def ping?
@@ -116,6 +121,12 @@ module SitemapGenerator
     def changed?
       # NOTE Digest would be better, but is not efficient with large sitemaps
       @old_size != @new_size 
+    end
+    
+    # do gzip compression
+    def compress
+      system("rm #{@filename}.gz") if File.exist?("#{@filename}.gz")
+      system("gzip #{@filename}")
     end
 
     def valid?

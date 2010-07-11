@@ -35,6 +35,7 @@ Below is a sample configuration file, which also contains the default values for
   limit: 5000
   priority: 1
   change_frequency: weekly
+  gzip: false
   </code>
 </pre>
 
@@ -154,7 +155,6 @@ SHELL=/bin/bash
 h2. Todo
 
 * "Sitemap validation":http://www.google.com/support/webmasters/bin/answer.py?hl=en&answer=35738
-* gzip sitemap
 * gem
 * Refactor code
 

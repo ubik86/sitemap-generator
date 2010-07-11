@@ -1,9 +1,8 @@
-require File.join(File.dirname(__FILE__), '/../lib/sitemap_generator')
-
 namespace :sitemap do
 
   desc "Generates the sitemap"
   task :generate do
+    require File.join(File.dirname(__FILE__), '/../lib/sitemap_generator')
     # Finds models and generates the sitemap
     SitemapGenerator::Generator.run 
     
